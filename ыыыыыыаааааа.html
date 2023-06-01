@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>сча залогиним тя</title>
+</head>
+<body>
+
+    <div>
+        <p><textarea id="txt1"placeholder="Введите логин"></textarea></p>
+        <p><textarea id="txt2"placeholder="Введите пароль"></textarea></p>
+        <button id="btn1">зарегистрироваться</button>
+        <button id="btn2">войти</button>
+    </div>
+
+    <script> 
+
+     class User {
+       
+        constructor(login, password) {
+            this.login = login
+            this.password = password
+  
+        }
+    }
+    
+    let users = []
+    
+    btn1.onclick = function() {
+        register()  
+    }
+    btn2.onclick = function() {
+        login()  
+    }
+    
+  
+    
+    
+    
+    function register() {
+        let login = document.getElementById("txt1").value
+        let password = document.getElementById("txt2").value
+
+        let log= 1
+        let pass = 0
+        
+        for(let i = 0; i <=users.length; i++) 
+        {
+            if(login == users[i]?.login) {
+                log = 0
+            }
+        }
+        
+        if(password.length>=4 && password.length<=12 )
+            pass = 1
+            else alert("Ошибка")
+         
+        if(log == 1 && pass == 1) {
+            const user = new User(login, password)
+            
+            users.push(user)
+            //////
+            
+        }
+            else  alert("ошибка регистрации")
+    
+        if(log == 0 && pass == 1) {
+            alert("такой пользователь уже зарегистрирован")
+        }
+        
+            console.log(users)
+    
+        
+        }
+    
+    function login() {
+        let login = document.getElementById("txt1").value
+        let password = document.getElementById("txt2").value
+        let login1 = 0 
+          
+        for(let i = 0; i <= users.length; i++)
+        {
+            let userCheck = users[i]
+            if (login == userCheck?.login && password == userCheck?.password)
+                login1 = 1      
+            }
+    
+            if(login1 === 1)
+                alert("вход выполнен")
+            else
+                alert("неверный логин или пароль")
+        } 
+        
+    </script>
+</body>
+</html>
